@@ -1,0 +1,10 @@
+The BouguerGravity project is a simple but powerful gravity-data-processing software I developed as a side project. It accepts gravity point data in the form of a VTK file (e.g. BouguerGrav.vtk), and processes it to give corrected Bouguer gravity values. These values are then kriged and output on a regular grid (e.g. bouguer_output.vtk). See BouguerGrav.jpg for an image of the kriged gridded output.
+
+Gravity data processing includes the following steps:
+- conversion of data to isogal84, so that the data can be integrated with regional data.
+- application of a lattitude correction due to non-sphericity of the earth, which causes gravity to vary with lattitude.
+- application of a free-air correction to account for the elevation of each datapoint, giving a gravity value as if each station was located at mean sea level.
+- application of a simple Bouguer correction, to account for the gravitational attraction of the rock between the mean sea level and the elevation of the datapoints.
+
+Kriging involves an interpolation (and extrapolation) of data based on the covariance of position and value of the set of gravity datapoints. Kriging gives the "best linear unbiased prediction" at unsampled locations, and is widely used in preference to more naive averaging or spline-smoothing interpolation techniques.
+
